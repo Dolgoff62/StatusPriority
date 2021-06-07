@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val plan = LocalDateTime.of(2021, 6, 8, 1, 0)
+        val plan = LocalDateTime.of(2021, 6, 8, 5, 0)
+        
         val result = Utils.determiningPriorityLevelOfNote(plan)
 
         binding.textView.text = result.toString()

@@ -34,7 +34,7 @@ class Utils {
                 )
             }
 
-            return if (nowPlusTwoHours.isBefore(planeDateTime)  && planeDateTime.isBefore(nextSixOClock)) {
+            return if (nowPlusTwoHours.isBefore(planeDateTime) && planeDateTime.isBefore(nextSixOClock)) {
                 StatusPriority.YELLOW
             } else {
                 StatusPriority.GREEN
