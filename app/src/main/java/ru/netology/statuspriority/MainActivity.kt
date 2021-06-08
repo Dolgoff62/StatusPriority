@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val plan = LocalDateTime.of(2021, 6, 8, 5, 0)
-        val nowDateTime = LocalDateTime.now()
+        val currentDateTime = LocalDateTime.now()
         
-        val result = Utils.determiningPriorityLevelOfNote(nowDateTime, plan)
+        val result = Utils.determiningPriorityLevelOfNote(currentDateTime, plan)
 
         binding.textView.text = result.toString()
 
