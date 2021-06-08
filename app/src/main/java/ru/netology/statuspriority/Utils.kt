@@ -42,27 +42,29 @@ class Utils {
 //        }
 
 
-        fun determiningPriorityLevelOfNote(planeDateTime: LocalDateTime) : StatusPriority {
+        fun determiningPriorityLevelOfNote(
+            now: LocalDateTime,
+            planeDateTime: LocalDateTime
+        ): StatusPriority {
 
-            val now = LocalDateTime.now()
             val mins: Long = ChronoUnit.MINUTES.between(now, planeDateTime)
             if (mins <= 120) {
                 return StatusPriority.RED
             }
 
             val nextSixOClock = LocalDateTime.of(
-            LocalDate.now().year,
-            LocalDate.now().monthValue,
-            LocalDate.now().dayOfMonth,
-            6,
-            0
+                LocalDate.now().year,
+                LocalDate.now().monthValue,
+                LocalDate.now().dayOfMonth,
+                6,
+                0
             )
 
-            if(now.hour > 6) {
+            if (now.hour > 6) {
                 nextSixOClock.plusDays(1)
             }
 
-            if ( mins > 120 && planeDateTime.isBefore(nextSixOClock)) {
+            if (mins > 120 && planeDateTime.isBefore(nextSixOClock)) {
                 return StatusPriority.YELLOW
             }
 
